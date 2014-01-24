@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<style type="text/css">
+
+	body {
+	  color: rgb(120, 120, 120);
+	}
+
+  form{
+    display: inline-block;
+  }
+
+  .maincolor{
+    color:rgb(79, 159, 207)
+  }
+
+</style>
+{% endblock %}
+ 
+
+{% block content %} 
+        <div class="page-header">
+
+          <div class='row'>
+            <div class='col-md-12'>
+                  <h1 class='maincolor' id='mainheader'>{%if user.is_authenticated%}{{request.user|capfirst}}{%endif%}</h1>
+            </div>
+          </div>
+        </div>
+        
+          <form method='post' class="form-inline" role="form" >{% csrf_token %}
+            <div class="form-group">{{form.listfk}}</div>
+            <button type="submit" class="btn btn-default" name='additem' id='additem'>Add Item</button>
+          </form>
+<hr>
+
+
+        <div class='row'>
+          <div class='col-md-12'>
+
+            </div>
+          </div>
+
+
+        </div>
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+
+<script type="text/javascript">
+</script>
+
+{% endblock %}
+
+
+
